@@ -1,0 +1,127 @@
+import 'package:anayahostelapp/home_screen.dart';
+// import 'package:flutter/material.dart';
+// import 'package:anayahostelapp/edit_screen.dart';
+// import 'package:anayahostelapp/model/note.dart';
+import 'package:anayahostelapp/edit.dart';
+
+// class UserTabBar extends StatelessWidget {
+//   final Note? note;
+//   const UserTabBar({super.key, this.note});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: ThemeData(useMaterial3: true),
+//       home: UserTabBarExample(note: note),
+//     );
+//   }
+// }
+
+// class UserTabBarExample extends StatelessWidget {
+//   final Note? note;
+//   const UserTabBarExample({super.key, this.note}); 
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return DefaultTabController(
+//       initialIndex: 1,
+//       length: 3,
+//       child: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Profile'),
+//           backgroundColor: Colors.blue.shade100,
+//           bottom: TabBar(
+//             dividerColor: Colors.transparent,
+//             tabs: <Widget>[
+//               Tab(icon: Icon(Icons.girl_rounded)),
+//               Tab(icon: Icon(Icons.people_alt_rounded)),
+//             ],
+//           ),
+//         ),
+//         body: TabBarView(
+//           children: <Widget>[
+//             Center(child: EditScreen(note: note)),
+//             Center(child: Text("Staff list")),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+import 'package:flutter/material.dart';
+import 'package:anayahostelapp/model/note.dart';
+import 'package:anayahostelapp/edit.dart';
+
+class UserTabBar extends StatelessWidget {
+  final Note? note;
+  const UserTabBar({super.key, this.note});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
+      home: UserTabBarExample(note: note),
+    );
+  }
+}
+
+class UserTabBarExample extends StatelessWidget {
+  final Note? note;
+  const UserTabBarExample({super.key, this.note});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      initialIndex: 0,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Profile'),
+          backgroundColor: Colors.blue.shade100,
+          leading: IconButton(
+            icon: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade800.withOpacity(.8),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.white,
+              ),
+            ),
+            onPressed: () {
+              // Navigator.pop(context);
+
+          if (Navigator.of(context).canPop()) {
+            //log("Back button pressed");
+              Navigator.of(context).pop();
+          } else {
+             Navigator.of(context).pushReplacement(
+             //log("Back button pushReplacement");
+
+             MaterialPageRoute(builder: (context) => HomeScreen()), // Change this to your main screen
+          );
+          }
+       },
+          ),
+          bottom: TabBar(
+            dividerColor: Colors.transparent,
+            tabs: <Widget>[
+              Tab(icon: Icon(Icons.girl_rounded)),
+              Tab(icon: Icon(Icons.people_alt_rounded)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            Center(child: EditScreen(note: note)),
+            Center(child: Text("Staff list")),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "783237653876",
+    "project_id": "ayaan-hostel",
+    "storage_bucket": "ayaan-hostel.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783237653876:android:1da7fb81e878fed483f821",
+        "android_client_info": {
+          "package_name": "com.example.anayahostelapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0KCYBja0KrLz1eubm4NqZn7EFA6LQWEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
