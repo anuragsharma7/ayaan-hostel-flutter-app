@@ -141,12 +141,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListTile(
                         onTap: () async {
                           final result = await Navigator.push(
+
                             context,
                             MaterialPageRoute(
-                              builder: (BuildContext context) => UserTabBar(note: filteredNotes[index]),
-
+                              builder: (context) => UserTabBar(note: filteredNotes[index]),
+                              fullscreenDialog: true,
                               // EditScreen(note: filteredNotes[index]),
                             ),
+ 
                           );
                           if (result != null) {
                             setState(() {
